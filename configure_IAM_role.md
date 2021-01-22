@@ -121,4 +121,4 @@ like so: </br>
 </br>
 
 
-**Congradulations! You just created and configured your IAM role and are now ready to proceed with using Amazon Lookout for Equipment.**
+**Congradulations!** You just created and configured your IAM role and are now ready to proceed with using Amazon Lookout for Equipment.
