@@ -13,7 +13,12 @@ Services in AWS, such as Lookout for Equipment, require that you provide credent
 
 An IAM role is an IAM identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
 
-Here we're going to create and IAM role to delegate access to Amazon Lookout for Equipment from the a SageMaker instance or Console. 
+**For AWS Management Console Access:** the console always uses your original credentials to authorize the switch. This applies whether you sign in as an IAM user, as a SAML-federated role, or as a web-identity federated role. For example, if you switch to RoleA, IAM uses your original user or federated role credentials to determine whether you are allowed to assume RoleA. If you then switch to RoleB while you are using RoleA, AWS still uses your original user or federated role credentials to authorize the switch, not the credentials for RoleA.
+
+
+**For SageMaker:** As SageMaker is a managed service, it performs operations on your behalf on the hardware that is managed by SageMaker. SageMaker can only perform operations that the user permits i.e. a SageMaker user can grant permissions with an IAM role (execution role), where the user then passes the role when making API calls.
+
+Here we're going to create and IAM role to delegate access to Amazon Lookout for Equipment from either the a SageMaker instance or AWS Management Console. 
 
 
 #### Step 1: 
@@ -53,8 +58,6 @@ Enter `Role name` and click on `Create Role`:
 
 
 ## Part 2: Attach policies to the created IAM role.
-
-As SageMaker is a managed service, it performs operations on your behalf on the hardware that is managed by SageMaker. SageMaker can only perform operations that the user permits i.e. a SageMaker user can grant permissions with an IAM role (execution role), where the user then passes the role when making API calls.
 
 For the purposed of running this demo, we're going to attach 3 access policies that allow Amazon Lookout For Equipment to access other required AWS Services. 
 
