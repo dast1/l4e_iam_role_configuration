@@ -7,6 +7,8 @@ Before you can start with Lookout for Equipment, you must sign up for an AWS acc
 
 Services in AWS, such as Lookout for Equipment, require that you provide credentials when you access them so that the service can determine whether you have permissions to access the resources owned by that service. These set of instructions will guide you through the necessary steps to create and configure an IAM role that you can use with Amazon Lookout for Equipment.
 
+Expected
+
 ## Part 1: Create an IAM role.
 ---
 **Step 1:** Navigate to IAM Service from your AWS Console by typing in `IAM` in the search bar. </br>
@@ -89,11 +91,15 @@ like so: </br>
 
 ## Part 3: Edit trust relatioship for the created IAM role.
 ---
-**Step 1:** Select `Trust relationships` tab and click on `Edit trust relatioship `: </br>
-![13](screenshots/13.png)
-</br>
+###Step 1:
+Select `Trust relationships` tab and click on `Edit trust relatioship `:
 
-**Step 2:** Copy-paste the following policy into the window and click on `Update Trust Policy`: </br>
+![13](screenshots/13.png)
+
+
+###Step 2:
+Copy-paste the following policy into the window and click on `Update Trust Policy`:
+
 ```json
 {
   "Version": "2012-10-17",
@@ -116,9 +122,9 @@ like so: </br>
 }
 ```
 
-like so: </br>
+as shown:
+
 ![14](screenshots/14.png)
-</br>
 
 
-**Congradulations!** You just created and configured your IAM role and are now ready to proceed with using Amazon Lookout for Equipment.
+**Congratulations!** You just created and configured your IAM role and are now ready to proceed with using Amazon Lookout for Equipment.
