@@ -119,3 +119,6 @@ like so: </br>
 like so: </br>
 ![14](screenshots/14.png)
 </br>
+
+
+**Congradulations! You just created and configured your IAM role and are now ready to proceed with using Amazon Lookout for Equipment.**
