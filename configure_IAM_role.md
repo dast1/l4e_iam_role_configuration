@@ -66,7 +66,7 @@ and click `Attach Policies`, like so:</br>
      {
          "Sid": "VisualEditor1",
          "Effect": "Allow",
-         "Action": "thorbrain:*",
+         "Action": "lookoutequipment:*",
          "Resource": "*"
      }
     ]
