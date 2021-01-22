@@ -13,9 +13,9 @@ Services in AWS, such as Lookout for Equipment, require that you provide credent
 
 An IAM role is an IAM identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
 
-Here we're going to create and IAM role to delegate access to a Amazon Lookout for Equipment from the a Sagemaker Instance or Console. 
+Here we're going to create and IAM role to delegate access to Amazon Lookout for Equipment from the a SageMaker instance or Console. 
 
----
+
 #### Step 1: 
 Navigate to IAM Service from your AWS Console by typing in `IAM` in the search bar. Click on `IAM` Service once it appears in the drop down menu, as shown:
 
@@ -56,10 +56,13 @@ Enter `Role name` and click on `Create Role`:
 
 As SageMaker is a managed service, it performs operations on your behalf on the hardware that is managed by SageMaker. SageMaker can only perform operations that the user permits i.e. a SageMaker user can grant permissions with an IAM role (execution role), where the user then passes the role when making API calls.
 
-For the purposed of running this demo, we're going to attach 3 policies access policies that allow Amazon Lookout For Equipment to access other AWS Services. 
+For the purposed of running this demo, we're going to attach 3 access policies that allow Amazon Lookout For Equipment to access other required AWS Services. 
 
-**Warning!:** Full access policies aren't generally recommend. Please modify them as needed to enforce tighter access controls for your needs.
----
+**Warning!:** 
+
+Full access policies aren't generally recommended. Please modify them as needed to enforce tighter access controls for your needs.
+
+
 #### Step 1:
 Search for the created IAM role in the search bar and click on it:
 
@@ -124,7 +127,7 @@ Fill-in the name in the `Name` field and click on `Create policy`:
 ## Part 3: Edit trust relatioship for the created IAM role.
 
 The trust relationship defines what entities can assume the role that you created in Part 1: Create an IAM role. When you created the role and established the trusted relationship, you chose SageMaker as the trusted entity. The same role can also be used for Console access. Modify the role so that the trusted relationship is between your AWS account and Amazon Lookout for Equipment. 
----
+
 
 #### Step 1:
 Select `Trust relationships` tab and click on `Edit trust relatioship `:
