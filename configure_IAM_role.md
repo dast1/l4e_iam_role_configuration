@@ -7,60 +7,90 @@ Before you can start with Lookout for Equipment, you must sign up for an AWS acc
 
 Services in AWS, such as Lookout for Equipment, require that you provide credentials when you access them so that the service can determine whether you have permissions to access the resources owned by that service. These set of instructions will guide you through the necessary steps to create and configure an IAM role that you can use with Amazon Lookout for Equipment.
 
-Expected
+**Expected Time to Complete:** 15 minutes. 
 
 ## Part 1: Create an IAM role.
+
+An IAM role is an IAM identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
+
+Here we're going to create and IAM role to delegate access to a Amazon Lookout for Equipment from the a Sagemaker Instance or Console. 
+
 ---
-**Step 1:** Navigate to IAM Service from your AWS Console by typing in `IAM` in the search bar. </br>
-Click on `IAM` Service once it appears in the drop down menu, like shown:</br>
+#### Step 1: 
+Navigate to IAM Service from your AWS Console by typing in `IAM` in the search bar. Click on `IAM` Service once it appears in the drop down menu, as shown:
+
 ![1](screenshots/1.png)
-</br>
 
-**Step 2:** Click on `Roles` and click on `Create Role`: </br>
+
+#### Step 2:
+Click on `Roles` and click on `Create Role`:
+
 ![2](screenshots/2.png)
-</br>
 
-**Step 3:** Select `Sagemaker` and click on `Next: Permissions`: </br>
+
+#### Step 3:
+Select `Sagemaker` and click on `Next: Permissions`:
+
 ![3](screenshots/3.png)
-</br>
 
-**Step 4:** Nothing here, just click on `Next: Tags`: </br>
+
+#### Step 4:
+Nothing here, just click on `Next: Tags`:
+
 ![4](screenshots/4.png)
-</br>
 
-**Step 5:** Nothing here either, just click on `Next: Review`: </br>
+
+##### Step 5:
+Nothing here either, just click on `Next: Review`:
+
 ![5](screenshots/5.png)
-</br>
 
-**Step 6:** Enter `Role name` and click on `Create Role`: </br>
+
+#### Step 6:
+Enter `Role name` and click on `Create Role`:
+
 ![6](screenshots/6.png)
-</br>
 
 
 ## Part 2: Attach policies to the created IAM role.
+
+As SageMaker is a managed service, it performs operations on your behalf on the hardware that is managed by SageMaker. SageMaker can only perform operations that the user permits i.e. a SageMaker user can grant permissions with an IAM role (execution role), where the user then passes the role when making API calls.
+
+For the purposed of running this demo, we're going to attach 3 policies access policies that allow Amazon Lookout For Equipment to access other AWS Services. 
+
+**Warning!:** Full access policies aren't generally recommend. Please modify them as needed to enforce tighter access controls for your needs.
 ---
-**Step 1:** Search for the created IAM role in the search bar and click on it: </br>
+#### Step 1:
+Search for the created IAM role in the search bar and click on it:
+
 ![7](screenshots/7.png)
-</br>
 
-**Step 2:** Click on `Attach Policies`: </br>
+
+#### Step 2:
+Click on `Attach Policies`:
+
 ![8](screenshots/8.png)
-</br>
 
-**Step 3:** Search and check-off the following policies: </br>
+
+#### Step 3:
+Search and check-off the following managed policies:
 1. _AmazonS3FullAccess_
 2. _IAMFullAccess_
 
-and click `Attach Policies`, like so:</br>
+and click `Attach Policies`, as shown:
 
 ![9](screenshots/9.png)
-</br>
 
-**Step 4:** Click on `Add inline policy`: </br>
+
+#### Step 4:
+Click on `Add inline policy`:
+
 ![10](screenshots/10.png)
-</br>
 
-**Step 5:** Select `JSON` tab and copy-paste the following policy into the window and click on `Review policy`: </br>
+
+#### Step 5: 
+Select `JSON` tab and copy-paste the following policy into the window and click on `Review policy`: 
+
 ```json
 {
  "Version": "2012-10-17",
@@ -81,15 +111,19 @@ and click `Attach Policies`, like so:</br>
 }
 ```
 
-like so: </br>
-![11](screenshots/11.png)
-</br>
+like so:
 
-**Step 6:** Fill-in the name in the `Name` field and click on `Create policy`: </br>
+![11](screenshots/11.png)
+
+### Step 6:
+Fill-in the name in the `Name` field and click on `Create policy`:
+
 ![12](screenshots/12.png)
-</br>
+
 
 ## Part 3: Edit trust relatioship for the created IAM role.
+
+The trust relationship defines what entities can assume the role that you created in Part 1: Create an IAM role. When you created the role and established the trusted relationship, you chose SageMaker as the trusted entity. The same role can also be used for Console access. Modify the role so that the trusted relationship is between your AWS account and Amazon Lookout for Equipment. 
 ---
 
 #### Step 1:
