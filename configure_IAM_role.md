@@ -1,5 +1,11 @@
 # Amazon Lookout for Equipment IAM Role Configuration Instructions
+Amazon Lookout for Equipment is a machine learning (ML) service for monitoring industrial equipment that detects abnormal equipment behavior and identifies potential failures. Lookout for Equipment enables users to implement predictive maintenance programs and to identify suboptimal equipment processes. 
 
+
+**Pre-requisite:**
+Before you can start with Lookout for Equipment, you must sign up for an AWS account. 
+
+Services in AWS, such as Lookout for Equipment, require that you provide credentials when you access them so that the service can determine whether you have permissions to access the resources owned by that service. These set of instructions will guide you through the necessary steps to create and configure an IAM role that you can use with Amazon Lookout for Equipment.
 
 ## Part 1: Create an IAM role.
 ---
