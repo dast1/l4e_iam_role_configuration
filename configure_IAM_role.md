@@ -91,13 +91,15 @@ like so: </br>
 
 ## Part 3: Edit trust relatioship for the created IAM role.
 ---
-###Step 1:
+### Step 1:
+
 Select `Trust relationships` tab and click on `Edit trust relatioship `:
 
 ![13](screenshots/13.png)
 
 
-###Step 2:
+### Step 2:
+
 Copy-paste the following policy into the window and click on `Update Trust Policy`:
 
 ```json
