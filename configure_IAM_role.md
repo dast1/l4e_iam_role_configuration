@@ -58,9 +58,7 @@ As SageMaker is a managed service, it performs operations on your behalf on the 
 
 For the purposed of running this demo, we're going to attach 3 access policies that allow Amazon Lookout For Equipment to access other required AWS Services. 
 
-</br>
-<span style="color:red">**Warning!:** Full access policies aren't generally recommended. Please modify them as needed to enforce tighter access controls for your needs. </span>
-
+**Warning!** Full access policies aren't generally recommended. Please modify them as needed to enforce tighter access controls for your needs.
 
 #### Step 1:
 Search for the created IAM role in the search bar and click on it:
