@@ -58,8 +58,8 @@ As SageMaker is a managed service, it performs operations on your behalf on the 
 
 For the purposed of running this demo, we're going to attach 3 access policies that allow Amazon Lookout For Equipment to access other required AWS Services. 
 
-
-<span style="color:red">some **Warning!:** Full access policies aren't generally recommended. Please modify them as needed to enforce tighter access controls for your needs. text</span>
+</br>
+<span style="color:red"> **Warning!:** Full access policies aren't generally recommended. Please modify them as needed to enforce tighter access controls for your needs. </span>
 
 
 Full access policies aren't generally recommended. Please modify them as needed to enforce tighter access controls for your needs.
